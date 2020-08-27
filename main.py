@@ -27,4 +27,9 @@ async def order():
     SCHEDULE.append((make_time + timedelta(seconds=150), 'Serve sandwich'))
     SCHEDULE.append((make_time + timedelta(seconds=210), 'Take a break'))
 
-    return SCHEDULE
+    return {"message": "OK"}
+
+
+@app.get("/schedule")
+async def schedule():
+    return {"schedule": SCHEDULE}
